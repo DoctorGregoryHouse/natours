@@ -2,17 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- this states that the width of the viewport should be rendered with the width of the device -->
+    <!-- if not specified, the browser zoomes out to fit the largest possible version of the page -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link
       href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="./icon-font.css" />
     <link rel="stylesheet" href="sass/main.scss" />
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
-
     <title>Natours | Exciting tours for adventurous people</title>
   </head>
 
@@ -92,6 +91,19 @@
         </div>
         <div class="col-1-of-2">
           <div class="composition">
+            <!-- with the information of the size 300w, and the information of the
+            sizes, the browser is able to determine which image to download. The
+            size states the width of the image in the DOM when the the
+            corresponding media queries take effect. For example if the image is
+            200px at the 900px media query, then 200/900 = 22vh are occupied by the image. -->
+            <!-- the source is specified for older browsers dont supporting srcset -->
+            <img
+              srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+              alt="Photo 1"
+              class="composition__photo composition__photo--p1"
+              sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw"
+              src="img/nat-1-large.jpg"
+            />
             <img
               src="img/nat-1-large.jpg"
               alt="Photo 1"
@@ -380,7 +392,19 @@
     </section>
     <footer class="footer">
       <div class="footer__logo-box">
-        <img src="/img/logo-green-2x.png" alt="Logo" class="footer__logo" />
+        <picture class="footer__logo">
+          <source
+            srcset="
+              img/logo-green-small-1x.png 1x,
+              img/logo-green-small-1x.png 2x
+            "
+            media="(max-width: 37.5em)"
+          />
+          <img
+            srcset="/img/logo-green-1x.png 1x, /img/logo-green-2x.png 2x"
+            alt="Logo"
+          />
+        </picture>
       </div>
       <div class="row">
         <div class="col-1-of-2">

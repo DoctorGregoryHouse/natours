@@ -17,14 +17,13 @@
   }
 
   &__shape {
+    margin-bottom: 2rem;
     @include respond(tab-port) {
-      margin: 0;
       float: left;
     }
     @include respond(phone) {
       transform: translate(-2rem) skew(0deg);
     }
-    margin: 1rem;
     width: 15rem;
     height: 15rem;
     float: left;
