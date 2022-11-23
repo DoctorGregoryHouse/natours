@@ -8,6 +8,10 @@
   transition: all 0.2s;
   backface-visibility: hidden;
 
+  @include respond(tab-port) {
+    padding: 2rem;
+  }
+
   &__icon {
     font-size: 6rem;
     margin-bottom: 0.5rem;
@@ -18,9 +22,6 @@
     );
     -webkit-background-clip: text;
     color: transparent;
-  }
-
-  &___text {
   }
 
   &:hover {

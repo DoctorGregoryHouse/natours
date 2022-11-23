@@ -20,6 +20,10 @@
     width: 90%;
     display: block;
 
+    @include respond(phone) {
+      width: 100%;
+    }
+
     &::-webkit-input-placeholder {
       color: $color-grey-dark-2;
     }
@@ -67,6 +71,13 @@
     width: 49%;
     &:last-child {
       margin-top: 3rem;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+      }
     }
   }
 

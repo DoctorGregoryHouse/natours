@@ -170,4 +170,55 @@
     font-weight: 240;
     font-size: 6rem;
   }
+
+  @include respond(tab-port) {
+    height: auto;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.15);
+
+    &__side {
+      height: auto;
+      position: relative;
+      border-radius: 4px;
+      //hides what exceeds the border of the container and therefore rounding the
+      // edges of the images
+      overflow: hidden;
+      box-shadow: none;
+
+      &--front {
+        background-color: $color-white;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+
+      &--back {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        background-color: orangered;
+        transform: rotateY(0deg);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0deg);
+    }
+
+    //Backside styling
+    &__cta {
+      width: 100%;
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      color: $color-white;
+      padding: 4rem;
+    }
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+    &__price-value {
+      font-size: 6rem;
+    }
+  }
 }

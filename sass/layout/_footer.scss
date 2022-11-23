@@ -3,8 +3,17 @@
   padding: 10rem 0;
   font-size: 1.4rem;
 
+  @include respond(tab-port) {
+    padding: 5rem 0;
+  }
+
   &__navigation {
     border-top: 1px solid $color-white;
+
+    @include respond(tab-port) {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__logo-box {

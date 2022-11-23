@@ -5,14 +5,30 @@
   box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
   font-size: $default-font-size;
   border-radius: 3px;
-  transform: skewX(-12deg);
+  transform: skewx(-12deg);
+
+  @include respond(tab-port) {
+    margin: 0;
+    padding: 3.5rem;
+  }
+
+  @include respond(phone) {
+    transform: skew(0deg);
+  }
 
   &__shape {
+    @include respond(tab-port) {
+      margin: 0;
+      float: left;
+    }
+    @include respond(phone) {
+      transform: translate(-2rem) skew(0deg);
+    }
     margin: 1rem;
     width: 15rem;
     height: 15rem;
     float: left;
-    transform: translateX(-2rem) skewX(12deg);
+    transform: translatex(-2rem) skewx(12deg);
 
     /*
     params: 
@@ -28,12 +44,15 @@
   }
   &__img {
     height: 100%;
-    transform: translateX(-4rem);
+    transform: translatex(-4rem);
     transition: all 0.5s;
   }
 
   &__text {
-    transform: skewX(12deg);
+    transform: skewx(12deg);
+    @include respond(phone) {
+      transform: skew(0deg);
+    }
   }
   &__caption {
     position: absolute;
@@ -52,7 +71,7 @@
   }
 
   &:hover &__img {
-    transform: translateX(-4rem) scale(1.4);
+    transform: translatex(-4rem) scale(1.4);
     filter: blur(3px) brightness(70%);
   }
 }
